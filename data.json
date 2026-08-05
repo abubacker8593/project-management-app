@@ -1,0 +1,64 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Abubakar",
+      "email": "abu@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": 2,
+      "name": "Aisha",
+      "email": "aisha@gmail.com",
+      "password": "password123"
+    },
+    {
+      "id": 3,
+      "name": "Rahul",
+      "email": "rahul@gmail.com",
+      "password": "rahul123"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Complete Redux Toolkit setup",
+      "description": "Create store and configure Provider.",
+      "status": "Pending",
+      "priority": "High",
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "title": "Design Login Page",
+      "description": "Create responsive login UI using Tailwind CSS.",
+      "status": "In Progress",
+      "priority": "Medium",
+      "userId": 1
+    },
+    {
+      "id": 3,
+      "title": "Implement Signup",
+      "description": "Add user registration with JSON Server.",
+      "status": "Completed",
+      "priority": "High",
+      "userId": 2
+    },
+    {
+      "id": 4,
+      "title": "Create Dashboard",
+      "description": "Show all tasks after login.",
+      "status": "Pending",
+      "priority": "Low",
+      "userId": 3
+    },
+    {
+      "id": 5,
+      "title": "Add CRUD Operations",
+      "description": "Users should add, edit, delete, and view tasks.",
+      "status": "In Progress",
+      "priority": "High",
+      "userId": 2
+    }
+  ]
+}
