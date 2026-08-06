@@ -9,6 +9,14 @@ const initialState = {
   loading: false,
   error: null,
 };
+const signupuser = createAsyncThunk("auth/signup" , async (data)=>{
+  try{
+    let res = await api.post("/users",data)
+    return res.data
+  }catch(err){
+    throw err
+  }
+})
 const loginuser = createAsyncThunk("auth/login", async (credentials) => {
   try {
     const response = await api.get(`/users?email=${credentials.email}`);
@@ -45,6 +53,10 @@ const authslice = createSlice({
       console.log("error" )
       state.error = action.error.message
       state.loading = false
+    })
+
+    .addCase(signupuser.fulfilled,(state,action) =>{
+      state.user.push(action.payload)
     })
   }
 });
