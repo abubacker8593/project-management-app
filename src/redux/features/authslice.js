@@ -9,7 +9,7 @@ const initialState = {
   loading: false,
   error: null,
 };
-const loginuser = createAsyncThunk("auth/loginu", async (credentials) => {
+const loginuser = createAsyncThunk("auth/login", async (credentials) => {
   try {
     const response = await api.get(`/users?email=${credentials.email}`);
     console.log(response.data);
@@ -22,19 +22,28 @@ const loginuser = createAsyncThunk("auth/loginu", async (credentials) => {
     }
     return user;
   } catch (err) {
-    console.log(err.message);
+    throw err;
   }
 });
 
 const authslice = createSlice({
   name: "auth",
+  initialState,
   reducers: {},
   extraReducers : (builder) =>{
     builder 
     .addCase(loginuser.pending,(state) =>{
       state.loading = true
+      state.error = null
     })
-    .addCase(loginuser.fulfilled,(state) =>{
+    .addCase(loginuser.fulfilled,(state,action ) =>{
+      state.isAuthenticated = true
+      state.loading = false
+      state.user  =  action.payload
+    })
+    .addCase(loginuser.rejected , (state,action)=>{
+      console.log("error" )
+      state.error = action.error.message
       state.loading = false
     })
   }
