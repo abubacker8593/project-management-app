@@ -2,15 +2,29 @@ import React, { useState } from "react";
 import "../index.css";
 import bg from "../assets/bg.jpg"
 import { useNavigate } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import { signupuser } from "../redux/features/authslice";
 function SignUp() {
     let navigate = useNavigate()
+    let dispatch = useDispatch()
   const [formdata, setformdata] = useState({
+    name : "",
     email: "",
     password: "",
   });
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
+    try{
+        await dispatch(signupuser(formdata)).unwrap()
+    setformdata({
+        name : "",
+        email : "",
+        password : ""
+    })
+    }catch(err){
+        console.log(err)
+    }
+
   }
   function handleChange(e) {
     setformdata({
@@ -30,6 +44,14 @@ function SignUp() {
         <h1 className="text-4xl font-medium px-3 py-4">SignUp</h1>
         <input
           type="text"
+          name="name"
+          placeholder="Name"
+          value={formdata.name}
+          onChange={handleChange}
+          className={inputcss}
+        />
+        <input
+          type="text"
           name="email"
           placeholder="Email"
           value={formdata.email}
@@ -44,10 +66,10 @@ function SignUp() {
           value={formdata.password}
           onChange={handleChange}
         />
-        <button type="submit" className="px-6 text-xl cursor-pointer font-medium  rounded-full py-1">Sign In</button>
+        <button type="submit" className="px-6 text-xl cursor-pointer font-medium  rounded-full py-1">Sign Up</button>
         <div className="flex items-center justify-between text-[#b3b3b3] text-[13px] mt-1">
             <div className="flex items-center justify-center gap-1.25 mt-1">
-             <button onClick={()=>{navigate('/')}}>Already have an account?</button>
+             <button type="button" onClick={()=>{navigate('/')}}>Already have an account?</button>
             </div>
             
             <p>Need Help?</p>

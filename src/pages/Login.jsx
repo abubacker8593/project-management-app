@@ -28,6 +28,7 @@ function Login() {
     }}>
       <form action="" className="flex flex-col w-[90%] max-w-100  gap-8 text-white text-[16px] rounded-md px-4 py-6 bg-white/10 backdrop-blur-md border border-white/20"  onSubmit={handleSubmit}>
         <h1 className="text-4xl font-medium px-3 py-4">Login</h1>
+        
         <input
           type="text"
           name="email"
