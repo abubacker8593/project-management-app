@@ -4,6 +4,7 @@ import bg from "../assets/bg.jpg"
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { signupuser } from "../redux/features/authslice";
+import { toast } from "react-toastify";
 function SignUp() {
     let navigate = useNavigate()
     let dispatch = useDispatch()
@@ -12,8 +13,37 @@ function SignUp() {
     email: "",
     password: "",
   });
+  let [error , setError ] = useState('')
   async function handleSubmit(e) {
     e.preventDefault();
+    if (!formdata.name.trim()) {
+    toast.error("Name is required");
+    return;
+  }
+
+  if (!formdata.email.trim()) {
+    toast.error("Email is required");
+    return;
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailRegex.test(formdata.email)) {
+    toast.error("Enter a valid email");
+    console.log('enter valid email')
+    return;
+  }
+
+  if (!formdata.password) {
+    toast.error("Password is required");
+    return;
+  }
+
+  if (formdata.password.length < 6) {
+    toast.error("Password must be at least 6 characters");
+    return;
+  }
+
     try{
         await dispatch(signupuser(formdata)).unwrap()
     setformdata({
@@ -21,8 +51,9 @@ function SignUp() {
         email : "",
         password : ""
     })
+    
     }catch(err){
-        console.log(err)
+        toast.error(err)
     }
 
   }
@@ -69,7 +100,7 @@ function SignUp() {
         <button type="submit" className="px-6 text-xl cursor-pointer font-medium  rounded-full py-1">Sign Up</button>
         <div className="flex items-center justify-between text-[#b3b3b3] text-[13px] mt-1">
             <div className="flex items-center justify-center gap-1.25 mt-1">
-             <button type="button" onClick={()=>{navigate('/')}}>Already have an account?</button>
+             <button type="button" onClick={()=>{navigate('/')}} className="text-white cursor-pointer">Already have an account?</button>
             </div>
             
             <p>Need Help?</p>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Taskcard() {
+function StatCard() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function Taskcard() {
   )
 }
 
-export default Taskcard
+export default StatCard

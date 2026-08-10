@@ -2,15 +2,51 @@ import React, { useState } from "react";
 import "../index.css";
 import bg from "../assets/bg.jpg"
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+import { loginuser } from "../redux/features/authslice";
+
+
 
 function Login() {
     let navigate = useNavigate()
+    let dispatch = useDispatch() 
+
   const [formdata, setformdata] = useState({
     email: "",
     password: "",
   });
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
+      if (!formdata.email.trim()) {
+        toast.error("Email is required");
+        return;
+      }
+    
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+      if (!emailRegex.test(formdata.email)) {
+        toast.error("Enter a valid email");
+        console.log('enter valid email')
+        return;
+      }
+    
+      if (!formdata.password) {
+        toast.error("Password is required");
+        return;
+      }
+    
+      if (formdata.password.length < 6) {
+        toast.error("Password must be at least 6 characters");
+        return;
+      }try{
+        let res = await dispatch(loginuser(formdata)).unwrap()
+        navigate("/Home")
+      }catch(err){
+        toast.error(err)
+      }
+    
+
   }
   function handleChange(e) {
     setformdata({
@@ -48,7 +84,7 @@ function Login() {
         <button type="submit" className="px-6 text-xl cursor-pointer font-medium  rounded-full py-1">Sign In</button>
         <div className="flex items-center justify-between text-[#b3b3b3] text-[13px] mt-1">
             <div className="flex items-center justify-center gap-1.25 mt-1">
-             <button onClick={()=>{navigate('/SignUp')}}>Create new account</button>
+             <button onClick={()=>{navigate('/SignUp')}} className="text-white">Create new account</button>
             </div>
             
             <p>Need Help?</p>
