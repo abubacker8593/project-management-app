@@ -41,6 +41,7 @@ function Login() {
         return;
       }try{
         let res = await dispatch(loginuser(formdata)).unwrap()
+        toast("logged In")
         navigate("/Home")
       }catch(err){
         toast.error(err)

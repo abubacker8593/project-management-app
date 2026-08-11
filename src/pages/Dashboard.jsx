@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavBar from "../components/navbar";
 import "../index.css";
-import { useSelector } from "react-redux";
-import SideBar from "../components/sidebar";
+import { useSelector ,useDispatch } from "react-redux";
 import StatCard from "../components/StatCard";
 import RecentProjects from "../components/RecentProjects";
+import SideBar from "../components/SideBar";
+import { fetchProjects } from "../redux/features/projectslice";
+import { fetchtasks } from "../redux/features/taskslice";
+// import bg from "../assets/bg.jpg"
 function Dashboard() {
+  let dispatch = useDispatch()
   let { dark } = useSelector((state) => state.theme);
+  useEffect(()=>{
+    dispatch(fetchProjects())
+    dispatch(fetchtasks())
+  },[dispatch])
   return (
-    <div className="h-screen w-screen  dark:bg-black dark:text-white ">
-      <div className="flex">
+    <div className="min-h-screen w-screen  dark:bg-black dark:text-white text-cyan-950 flex">
+      
         <SideBar />
 
          <div className="flex-1">
@@ -17,7 +25,6 @@ function Dashboard() {
           <NavBar/>
 
           <main className="p-8">
-
             <div className="mb-8">
               <h1 className="text-3xl font-bold">
                 Good morning, Abu 👋
@@ -28,7 +35,7 @@ function Dashboard() {
               </p>
             </div>
 
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-center">
 
               <StatCard
                 title="Total Projects"
@@ -54,7 +61,7 @@ function Dashboard() {
 
           </main>
 
-        </div>
+        
       </div>
     </div>
   );

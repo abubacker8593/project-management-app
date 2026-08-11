@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../index.css";
 import bg from "../assets/bg.jpg"
 import { useNavigate } from "react-router-dom";
@@ -13,6 +13,9 @@ function SignUp() {
     email: "",
     password: "",
   });
+  useEffect(()=>{
+    toast("rendered")
+  },[])
   let [error , setError ] = useState('')
   async function handleSubmit(e) {
     e.preventDefault();

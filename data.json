@@ -1,22 +1,10 @@
 {
   "users": [
     {
-      "name": "abuu ",
+      "name": "abuu",
       "email": "abubackermax10@gmail.com",
       "password": "assassin8593",
       "id": "RWzeV7UgJPc"
-    },
-    {
-      "name": "abu",
-      "email": "abubackermax10@gmail.com",
-      "password": "assassin8593",
-      "id": "LJVVfjYEj0Q"
-    },
-    {
-      "name": "abubaceee",
-      "email": "87428739",
-      "password": "sufhuds9d8f",
-      "id": "FbwJ6HXJ8mM"
     }
   ],
   "tasks": [
@@ -61,5 +49,51 @@
       "userId": 2
     }
   ],
-  "$schema": "./node_modules/json-server/schema.json"
+ "projects": [
+  {
+    "id": 1,
+    "name": "Project Management System",
+    "description": "A project management application built with React, Redux Toolkit and JSON Server.",
+    "status": "In Progress",
+    "priority": "High",
+    "progress": 65,
+    "deadline": "2026-08-25"
+  },
+  {
+    "id": 2,
+    "name": "Portfolio Website",
+    "description": "Personal portfolio website showcasing projects and technical skills.",
+    "status": "Completed",
+    "priority": "Medium",
+    "progress": 100,
+    "deadline": "2026-08-10"
+  },
+  {
+    "id": 3,
+    "name": "Netflix Clone",
+    "description": "Movie streaming interface built using React and a movie API.",
+    "status": "In Progress",
+    "priority": "High",
+    "progress": 75,
+    "deadline": "2026-09-05"
+  },
+  {
+    "id": 4,
+    "name": "Task Management App",
+    "description": "A task management application with CRUD functionality.",
+    "status": "In Progress",
+    "priority": "Medium",
+    "progress": 45,
+    "deadline": "2026-09-12"
+  },
+  {
+    "id": 5,
+    "name": "Bike Workshop Website",
+    "description": "Responsive website for a motorcycle repair and service workshop.",
+    "status": "Completed",
+    "priority": "Low",
+    "progress": 100,
+    "deadline": "2026-07-30"
+  }
+]
 }
