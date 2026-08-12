@@ -27,7 +27,7 @@ function RecentProjects() {
           {projects.map((project) => {
             return (
               <div className="flex justify-between mb-3 hover:bg-zinc-800" key={project.id}>
-                <h1 className="text-gray-300 hover:text-white">{project.name}</h1>
+                <h1 className="dark:text-gray-300 hover:text-white">{project.title}</h1>
                 {project.status == "Completed" ? (
                   <span className="text-green-500 font-mono text-left">
                     completed

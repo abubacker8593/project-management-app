@@ -1,11 +1,18 @@
-import React from 'react'
+import React from "react";
+import { useSelector } from "react-redux";
+import { Navigate, Outlet } from "react-router-dom";
 
-function protectedRoutes() {
-  return (
-    <div>
-      
-    </div>
-  )
+function ProtectedRoutes() {
+  const isAuthenticated = useSelector(
+    (state) => state.auth.isAuthenticated
+  );
+  const auth = useSelector((state) => state.auth);
+
+  return isAuthenticated ? (
+    <Outlet />
+  ) : (
+    <Navigate to="/" replace />
+  );
 }
 
-export default protectedRoutes
+export default ProtectedRoutes;

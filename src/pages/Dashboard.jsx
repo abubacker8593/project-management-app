@@ -7,14 +7,23 @@ import RecentProjects from "../components/RecentProjects";
 import SideBar from "../components/SideBar";
 import { fetchProjects } from "../redux/features/projectslice";
 import { fetchtasks } from "../redux/features/taskslice";
+import { useNavigate } from "react-router-dom";
 // import bg from "../assets/bg.jpg"
 function Dashboard() {
   let dispatch = useDispatch()
+  let navigate = useNavigate()
   let { dark } = useSelector((state) => state.theme);
   useEffect(()=>{
     dispatch(fetchProjects())
     dispatch(fetchtasks())
   },[dispatch])
+  const isAuthenticated = useSelector(
+  (state) => state.auth.isAuthenticated
+);
+
+if (!isAuthenticated) {
+   return navigate("/Login")
+}
   return (
     <div className="min-h-screen w-screen  dark:bg-black dark:text-white text-cyan-950 flex">
       

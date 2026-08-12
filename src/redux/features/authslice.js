@@ -15,7 +15,7 @@
       let res = await api.post("/users",data)
       return res.data
     }catch(err){
-      throw err
+     return rejectWithValue(err.response?.data||err.message)
     }
   })
   export const loginuser = createAsyncThunk("auth/login", async (credentials,{rejectWithValue}) => {
@@ -35,10 +35,17 @@
     }
   });
 
+
   const authslice = createSlice({
     name: "auth",
     initialState,
-    reducers: {},
+    reducers: {
+      logout : (state)=> {
+        state.isAuthenticated = false
+        state.user = ""
+        toast('logged out')
+      }
+    },
     extraReducers : (builder) =>{
       builder 
       .addCase(loginuser.pending,(state) =>{
@@ -62,4 +69,5 @@
       })
     }
   });
+  export const {logout} = authslice.actions
   export const authReducer = authslice.reducer;

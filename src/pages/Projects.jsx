@@ -4,13 +4,12 @@ import { FaPlus, FaSearch, FaEdit, FaTrash } from "react-icons/fa";
 
 import SideBar from "../components/SideBar";
 import NavBar from "../components/navbar";
-import { fetchProjects } from "../redux/features/projectslice";
+import { deleteProject, fetchProjects } from "../redux/features/projectslice";
 import { Outlet, useNavigate } from "react-router-dom";
-
 
 function Projects() {
   const dispatch = useDispatch();
-  let navigate = useNavigate()
+  let navigate = useNavigate();
   const { projects, isloading, error } = useSelector((state) => state.projects);
 
   useEffect(() => {
@@ -42,6 +41,9 @@ function Projects() {
               className="flex items-center gap-2 px-4 py-2 rounded-lg
               bg-blue-600 text-white
               hover:bg-blue-700 transition"
+              onClick={() => {
+                navigate("/AddProjects");
+              }}
             >
               <FaPlus className="text-sm" />
               Add Project
@@ -74,7 +76,7 @@ function Projects() {
             bg-white dark:bg-zinc-900
             overflow-hidden"
           >
-             <Outlet />
+            <Outlet />
             {/* Table Header */}
             <div
               className="grid grid-cols-12
@@ -83,7 +85,6 @@ function Projects() {
               text-sm font-medium
               text-gray-500 dark:text-gray-400"
             >
-                 
               <div className="col-span-5">Project</div>
 
               <div className="col-span-2">Status</div>
@@ -108,9 +109,7 @@ function Projects() {
             {/* Projects */}
             {!isloading &&
               !error &&
-               
               projects.map((project) => (
-                
                 <div
                   key={project.id}
                   className="grid grid-cols-12
@@ -121,19 +120,18 @@ function Projects() {
                 hover:bg-gray-50
                 dark:hover:bg-zinc-800/50
                 transition"
-                onClick={()=>{navigate(`/Projects/${project.id}`)}}
+                  onClick={() => {
+                    navigate(`/Projects/${project.id}`);
+                  }}
                 >
-                    
-                  {/* Name */}
                   <div className="col-span-5">
-                    <h2 className="font-medium">{project.name}</h2>
+                    <h2 className="font-medium">{project.title}</h2>
 
                     <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
                       {project.description}
                     </p>
                   </div>
 
-                  {/* Status */}
                   <div className="col-span-2">
                     {project.status === "Completed" ? (
                       <span className="text-sm text-green-500">
@@ -164,14 +162,18 @@ function Projects() {
                       <FaEdit />
                     </button>
 
-                    <button className="text-gray-500 hover:text-red-500 transition">
+                    <button
+                      className="text-gray-500 hover:text-red-500 transition"
+                      onClick={() => {
+                        dispatch(deleteProject(project.id));
+                      }}
+                    >
                       <FaTrash />
                     </button>
                   </div>
                 </div>
               ))}
           </div>
-         
         </main>
       </div>
     </div>
