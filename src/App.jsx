@@ -11,25 +11,29 @@ import ProjectDetails from "./pages/ProjectDetails";
 import AddProjects from "./pages/AddProjects";
 import ProtectedRoutes from "./components/protectedRoutes";
 import { HiH1 } from "react-icons/hi2";
+import Profile from "./pages/Profile";
 
 function App() {
   const [count, setCount] = useState("green");
   let { dark } = useSelector((state) => state.theme);
-console.log("APP RENDER");
-console.log("AUTH:", useSelector((state) => state.auth));
+  console.log("APP RENDER");
+  console.log(
+    "AUTH:",
+    useSelector((state) => state.auth),
+  );
   return (
     <div className={dark ? "dark" : ""}>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/SignUp" element={<SignUp />} />
         <Route element={<ProtectedRoutes />}>
-        <Route path="/Home" element={<Dashboard />} />
+          <Route path="/Home" element={<Dashboard />} />
 
-        <Route path="/projects" element={<Projects />}>
-          <Route path=":id" element={<ProjectDetails />} />
-        </Route>
-        <Route path="/AddProjects" element={<AddProjects />}></Route>
-
+          <Route path="/projects" element={<Projects />}>
+            <Route path=":id" element={<ProjectDetails />} />
+          </Route>
+          <Route path="/AddProjects" element={<AddProjects />}></Route>
+          <Route path="/Profile" element={<Profile/>}></Route>
         </Route>
         <Route path="*" element={<h1>Not found</h1>}></Route>
       </Routes>

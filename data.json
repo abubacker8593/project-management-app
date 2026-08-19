@@ -1,10 +1,15 @@
 {
   "users": [
     {
-      "name": "abuu",
-      "email": "abubackermax10@gmail.com",
+      "name": "aboobacker m",
+      "email": "abuuuuuuu@gmail.com",
       "password": "assassin8593",
-      "id": "RWzeV7UgJPc"
+      "id": "HGt0YJA95yg",
+      "phone": "08593986533",
+      "bio": "i am super",
+      "location": "peinthalmanna",
+      "job": "main character",
+      "website": "www.youtube.com"
     }
   ],
   "tasks": [
@@ -59,15 +64,6 @@
       "progress": 40,
       "team": "Mobile Team",
       "deadline": "2026-10-01"
-    },
-    {
-      "title": "uehuarhfsdufi",
-      "description": "ifefea",
-      "status": "In Progress",
-      "priority": "Low",
-      "team": "fdsf",
-      "deadline": "2026-08-25",
-      "id": "2uKvf8zProQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

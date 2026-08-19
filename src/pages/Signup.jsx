@@ -49,11 +49,13 @@ function SignUp() {
 
     try{
         await dispatch(signupuser(formdata)).unwrap()
+         navigate("/Home")
     setformdata({
         name : "",
         email : "",
         password : ""
     })
+   
     
     }catch(err){
         toast.error(err)
