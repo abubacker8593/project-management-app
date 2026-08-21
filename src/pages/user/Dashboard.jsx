@@ -1,17 +1,18 @@
 import React, { useEffect } from "react";
-import NavBar from "../components/navbar";
-import "../index.css";
+import NavBar from "../../components/navbar";
+
 import { useSelector ,useDispatch } from "react-redux";
-import StatCard from "../components/StatCard";
-import RecentProjects from "../components/RecentProjects";
-import SideBar from "../components/SideBar";
-import { fetchProjects } from "../redux/features/projectslice";
-import { fetchtasks } from "../redux/features/taskslice";
+import StatCard from "../../components/StatCard";
+import RecentProjects from "../../components/RecentProjects";
+import SideBar from "../../components/SideBar";
+import { fetchProjects } from "../../redux/features/projectslice";
+import { fetchtasks } from "../../redux/features/taskslice";
 import { useNavigate } from "react-router-dom";
 // import bg from "../assets/bg.jpg"
 function Dashboard() {
   let dispatch = useDispatch()
   let navigate = useNavigate()
+  let { user } = useSelector((state) => state.auth);
   let { dark } = useSelector((state) => state.theme);
   useEffect(()=>{
     dispatch(fetchProjects())
@@ -36,7 +37,7 @@ if (!isAuthenticated) {
           <main className="p-8">
             <div className="mb-8">
               <h1 className="text-3xl font-bold">
-                Good morning, Abu 👋
+                Good morning, {user?.name} 👋
               </h1>
 
               <p className="text-gray-500 mt-1">

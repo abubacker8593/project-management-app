@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FaPlus, FaSearch, FaEdit, FaTrash } from "react-icons/fa";
 
-import SideBar from "../components/SideBar";
-import NavBar from "../components/navbar";
-import { deleteProject, fetchProjects } from "../redux/features/projectslice";
+import SideBar from "../../components/SideBar";
+import NavBar from "../../components/navbar";
+import { deleteProject, fetchProjects } from "../../redux/features/projectslice";
 import { Outlet, useNavigate } from "react-router-dom";
 
 function Projects() {

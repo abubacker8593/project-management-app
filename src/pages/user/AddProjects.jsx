@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import "../index.css";
-import SideBar from "../components/SideBar";
-import NavBar from "../components/navbar";
-import { addProject } from "../redux/features/projectslice";
+
+import SideBar from "../../components/SideBar";
+import NavBar from "../../components/navbar";
+import { addProject } from "../../redux/features/projectslice";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const initialForm = {
   title: "",
@@ -16,6 +17,7 @@ const initialForm = {
 };
 
 function AddProjects() {
+  let navigate = useNavigate()
   const [formdata, setformdata] = useState(initialForm);
 
   const dispatch = useDispatch();
@@ -47,6 +49,8 @@ console.log("AUTH:", auth);
       toast.success("Project added successfully!");
 
       setformdata(initialForm);
+      navigate('/Home')
+      
     } catch (err) {
       toast.error(err?.message || "Failed to add project");
     }

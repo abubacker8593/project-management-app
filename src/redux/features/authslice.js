@@ -26,6 +26,7 @@ export const signupuser = createAsyncThunk(
     }
   },
 );
+
 export const loginuser = createAsyncThunk(
   "auth/login",
   async (credentials, { rejectWithValue }) => {
@@ -45,6 +46,7 @@ export const loginuser = createAsyncThunk(
     }
   },
 );
+
 export const updateuser = createAsyncThunk(
   "auth/update",
   async (data, { rejectWithValue }) => {
@@ -86,12 +88,14 @@ const authslice = createSlice({
       })
 
       .addCase(signupuser.fulfilled, (state, action) => {
-        state.user.push(action.payload);
+        state.user = action.payload;
         state.isAuthenticated = true;
       })
       .addCase(updateuser.fulfilled, (state, action) => {
         state.user = action.payload;
       });
+      
+      
   },
 });
 export const { logout } = authslice.actions;

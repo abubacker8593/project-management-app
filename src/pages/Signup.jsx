@@ -12,6 +12,7 @@ function SignUp() {
     name : "",
     email: "",
     password: "",
+    role : "user"
   });
   useEffect(()=>{
     toast("rendered")
@@ -53,7 +54,9 @@ function SignUp() {
     setformdata({
         name : "",
         email : "",
-        password : ""
+        password : "",
+        role : "user",
+        active : true
     })
    
     

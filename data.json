@@ -5,11 +5,45 @@
       "email": "abuuuuuuu@gmail.com",
       "password": "assassin8593",
       "id": "HGt0YJA95yg",
-      "phone": "08593986533",
-      "bio": "i am super",
+      "phone": "8593986533",
+      "bio": "i am super ",
       "location": "peinthalmanna",
-      "job": "main character",
-      "website": "www.youtube.com"
+      "job": "main character ",
+      "role": "user",
+      "website": "www.youtube.com",
+      "active": true,
+      "profile": "data:image/jpeg;base64,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"
+    },
+    {
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "password": "admin123",
+      "role": "admin",
+      "id": "nvZdsKqZnHI"
+    },
+    {
+      "name": "sinan",
+      "email": "sinan@gmail.com",
+      "password": "assassin8593",
+      "role": "user",
+      "id": "GzOMLMUNcqo",
+      "active": true
+    },
+    {
+      "name": "sahad",
+      "email": "sahad@gmail.com",
+      "password": "sahad123",
+      "role": "user",
+      "id": "4sZ4LP5nFuA",
+      "active": false
+    },
+    {
+      "name": "fake",
+      "email": "fake@gmail.com",
+      "password": "fake123",
+      "role": "user",
+      "id": "BxTfR6cmn-o",
+      "active": true
     }
   ],
   "tasks": [
@@ -64,6 +98,15 @@
       "progress": 40,
       "team": "Mobile Team",
       "deadline": "2026-10-01"
+    },
+    {
+      "title": "User management ",
+      "description": "i want to be able to create a new app ",
+      "status": "Planning",
+      "priority": "Medium",
+      "team": "Backend team",
+      "deadline": "2026-08-24",
+      "id": "L_kbPnl1oDI"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
