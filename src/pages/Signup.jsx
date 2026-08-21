@@ -12,7 +12,8 @@ function SignUp() {
     name : "",
     email: "",
     password: "",
-    role : "user"
+    role : "user",
+    active : true 
   });
   useEffect(()=>{
     toast("rendered")

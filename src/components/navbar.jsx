@@ -22,11 +22,11 @@ function NavBar() {
           <User />
           <div className="hidden group-hover:block  absolute right-0 top-full">
            {user.role === "user" && (
-            <button className="cursor-pointer bg-gray-400 px-2 py-1 rounded-sm mt-1 hover:text-white" onClick={()=>{navigate("/Profile")}}>
+            <button className="cursor-pointer  px-2 py-1 rounded-sm mt-1 hover:text-white" onClick={()=>{navigate("/Profile")}}>
               Profile
             </button>)}
             <button
-              className="cursor-pointer bg-gray-400 px-2 py-1 rounded-sm mt-1 hover:text-white"
+              className="cursor-pointer  px-2 py-1 rounded-sm mt-1 hover:text-white"
               onClick={() => {
                 dispatch(logout());
 
