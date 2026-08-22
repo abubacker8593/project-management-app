@@ -50,7 +50,7 @@
       "email": "rinshida@gmail.com",
       "password": "rinshida123",
       "role": "user",
-      "active": true,
+      "active": false,
       "id": "CzVGeN3X_Fk",
       "phone": "33",
       "bio": "i am vibe coder",
@@ -112,15 +112,6 @@
       "progress": 40,
       "team": "Mobile Team",
       "deadline": "2026-10-01"
-    },
-    {
-      "title": "User management ",
-      "description": "i want to be able to create a new app ",
-      "status": "Planning",
-      "priority": "Medium",
-      "team": "Backend team",
-      "deadline": "2026-08-24",
-      "id": "L_kbPnl1oDI"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
